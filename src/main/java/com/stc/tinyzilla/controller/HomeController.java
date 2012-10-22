@@ -31,7 +31,7 @@ public class HomeController {
 	BugServices service;
 	
 	
-	@RequestMapping(value = "/newBug", method = RequestMethod.GET)
+	@RequestMapping(value = "/newBug")
 	public ModelAndView newBug(@RequestParam String title) {
 		service.createBug(title);
 		ModelAndView mv = new ModelAndView("ok");

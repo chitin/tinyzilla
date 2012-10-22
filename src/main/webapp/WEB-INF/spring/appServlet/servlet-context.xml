@@ -9,6 +9,8 @@
 
 	<!-- DispatcherServlet Context: defines this servlet's request-processing infrastructure -->
 	
+	<beans:import resource="classpath:beans.database.xml"/>
+	
 	<!-- Enables the Spring MVC @Controller programming model -->
 	<annotation-driven />
 
@@ -21,10 +23,11 @@
 		<beans:property name="suffix" value=".jsp" />
 	</beans:bean>
 	
+	
 	<context:component-scan base-package="com.stc.tinyzilla" />
 	
 	  <!-- No java logic required, just a simple mapping. -->
-	  <view-controller path="/foo" view-name="foo"  />
+	  <view-controller path="/ok" view-name="ok"  />
 	
 	
 </beans:beans>

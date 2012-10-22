@@ -11,6 +11,6 @@
 
 <P>  The time on the server is ${serverTime}. </P>
 
-<a href="/newBug?title=uffa">Create a bug</a>
+<a href="/tinyzilla/newBug?title=uffa">Create a bug</a>
 </body>
 </html>
