@@ -23,6 +23,8 @@
 	
 	<context:component-scan base-package="com.stc.tinyzilla" />
 	
+	  <!-- No java logic required, just a simple mapping. -->
+	  <view-controller path="/foo" view-name="foo"  />
 	
 	
 </beans:beans>
