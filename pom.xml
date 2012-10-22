@@ -135,8 +135,13 @@
 			<version>4.7</version>
 			<scope>test</scope>
 		</dependency>        
+		<dependency>
+			<groupId>com.stc.tinyzilla.model</groupId>
+			<artifactId>model</artifactId>
+			<version>1.0.0-BUILD-SNAPSHOT</version>
+		</dependency>
 	</dependencies>
-    <build>
+    <build> 
         <plugins>
             <plugin>
                 <artifactId>maven-eclipse-plugin</artifactId>

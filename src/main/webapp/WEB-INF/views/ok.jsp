@@ -9,8 +9,6 @@
 	Hello world!  
 </h1>
 
-<P>  The time on the server is ${serverTime}. </P>
-
-<a href="/newBug?title=uffa">Create a bug</a>
+<P>  Bug has been saved with title ${title} </P>
 </body>
 </html>
