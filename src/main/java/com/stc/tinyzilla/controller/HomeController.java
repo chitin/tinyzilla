@@ -2,20 +2,18 @@ package com.stc.tinyzilla.controller;
 
 import java.text.DateFormat;
 import java.util.Date;
-import java.util.List;
 import java.util.Locale;
+import java.util.Map;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.sql.DataSource;
-
-
-import net.sf.jasperreports.engine.data.JRBeanCollectionDataSource;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
-import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -23,8 +21,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.stc.tinyzilla.service.BugServices;
-import com.stc.tinyzilla.tinyzilla.model.Bug;
-import com.stc.tinyzilla.tinyzilla.service.data.DataLayerTinyzilla;
 
 /**
  * Handles requests for the application home page.
@@ -74,13 +70,18 @@ public class HomeController {
 	
 
 	@RequestMapping(value = "/report", method = RequestMethod.GET)
-	@Transactional
-	public ModelAndView report() {
-		ModelAndView mv = new ModelAndView("sampleReport");
-//		List<Bug> ds = dataLayer.createQuery("from Bug").list();
-//		mv.addObject("reportDataKey", new  JRBeanCollectionDataSource (ds));
-		mv.addObject("reportDataKey", datasource);
-		return mv;
-	}
+	public ModelAndView handleSimpleReportMulti(HttpServletRequest request,
+			HttpServletResponse response) throws Exception {
+
+			  String uri = request.getRequestURI();
+			  String format = uri.substring(uri.lastIndexOf(".") + 1);
+
+			  ModelAndView model = new ModelAndView("sampleReport");
+			  model.addObject("format", format);
+			  model.addObject("reportDataKey", datasource);
+
+			  return model;
+			}
+	
 
 }
